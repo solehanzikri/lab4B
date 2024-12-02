@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.getJSON('books.json', function(data) {
+                // (a) Title of the first book
+                console.log("Title of the first book:", data[0].title);
+
+                // (b) Author of the second book
+                console.log("Author of the second book:", data[1].author);
+
+                // (c) Genres of all books
+                console.log("Genres of all books:");
+                for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].title + ":");
+                    for (let j = 0; j < data[i].genres.length; j++) {
+                        console.log(" - " + data[i].genres[j]);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    </body>
+</html>
